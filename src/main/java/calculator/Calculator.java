@@ -9,6 +9,9 @@ public class Calculator {
         String delimiter = "[,:]";
         if (input.startsWith("//")) {
             int delimiterIndex = input.indexOf("\n");
+            if (delimiterIndex == -1) {
+                throw new IllegalArgumentException();
+            }
             delimiter = input.substring(2, delimiterIndex);
             input = input.substring(delimiterIndex + 1);
         }
